@@ -1,9 +1,11 @@
 const jsdom = require('jsdom')
+const express = require('express')
 const puppeteer = require('puppeteer')
 
 const { JSDOM } = jsdom
 
 const url = 'https://www.humblebundle.com'
+const port = 3000
 
 const fetchHumbleBundle = async() => {
   const browser = await puppeteer.launch();
@@ -40,6 +42,11 @@ const parsePage = page => {
   return humbleCards
 }
 
-fetchHumbleBundle()
+const app = express()
+
+app.get('/get-bundles', (req, res) => fetchHumbleBundle()
   .then(parsePage)
-  .then(console.log)
+  .then(data => res.send(data))
+)
+
+app.listen(port, () => void (console.log(`Server running on port ${port}`)))
