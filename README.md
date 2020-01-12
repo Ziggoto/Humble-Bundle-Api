@@ -2,7 +2,7 @@
 ### Just an unofficial API for Humble Bundle
 
 ## Why?
-For 2 main reasons actually.  First, and probably the most important one, this is the backend of the [Humble Bundle Updater channel](https://t.me/humblebundleupdater) on Telegram. The second reason it was because I wanted to study microservices, so I've split the logic behind the channel into modules, and this is probably the most important one.
+For 2 main reasons actually.  First, and probably the most important one, this is the backend of the [Humble Bundle Updater channel](https://t.me/humblebundleupdater) on Telegram. The second reason it was because I wanted to study microservices, so I've split the logic behind the channel into modules, and this is one of them.
 
 ## Build instructions
 The easiest way to run this project is by using docker. Once you have docker installed in your machine you can just follow the next steps.
