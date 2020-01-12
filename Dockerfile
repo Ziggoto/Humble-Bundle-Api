@@ -10,6 +10,8 @@ RUN apk add --no-cache \
       ca-certificates \
       ttf-freefont
 
+RUN npm install pm2 -g
+
 RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64
 RUN chmod +x /usr/local/bin/dumb-init
 
@@ -34,4 +36,4 @@ RUN npm i
 EXPOSE 3000
 
 ENTRYPOINT ["dumb-init", "--"]
-CMD ["node", "index.js"]
+CMD ["pm2-runtime", "index.js"]
