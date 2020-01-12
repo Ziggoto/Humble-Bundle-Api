@@ -8,8 +8,11 @@ const url = 'https://www.humblebundle.com'
 const port = 3000
 
 const fetchHumbleBundle = async() => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
+  const browser = await puppeteer.launch({
+    executablePath: '/usr/bin/chromium-browser',
+    args: ['--disable-dev-shm-usage', '--no-sandbox', '--disable-setuid-sandbox']
+  })
+  const page = await browser.newPage()
   await page.goto(url);
   await page.$('.js-bundle-dropdown').then(btn => btn.click())
 
