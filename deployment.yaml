@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: humble-api-deployment
+  labels:
+    app: humble-api
+spec:
+  selector:
+    matchLabels:
+      role: humble-api
+  template:
+    metadata:
+      labels:
+        role: humble-api
+    spec:
+      containers:
+      - name: humble-api
+        image: ziggoto/humble-api:latest
+        ports:
+        - containerPort: 3000
