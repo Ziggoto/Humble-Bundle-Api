@@ -47,7 +47,9 @@ const parsePage = page => {
 
 const app = express()
 
-app.get('/get-bundles', (req, res) => fetchHumbleBundle()
+app.get('/', (_, res) => res.send('It\'s working'))
+
+app.get('/get-bundles', (_, res) => fetchHumbleBundle()
   .then(parsePage)
   .then(data => res.send(data))
 )

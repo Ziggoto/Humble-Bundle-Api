@@ -3,15 +3,15 @@ kind: Deployment
 metadata:
   name: humble-api-deployment
   labels:
-    app: humble-api
+    app: humble-api-pod
 spec:
   selector:
     matchLabels:
-      role: humble-api
+      role: humble-api-pod
   template:
     metadata:
       labels:
-        role: humble-api
+        role: humble-api-pod
     spec:
       containers:
       - name: humble-api
