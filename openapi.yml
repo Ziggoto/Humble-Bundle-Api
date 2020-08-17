@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Humble Bundle API
+paths:
+  /get-bundles:
+    get:
+      summary: Returns all bundles
+      responses:
+        '200':
+          description: Fetchs all current bundles of Humble Bundle website
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bundle'
+components:
+  schemas:
+    Bundle:
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+          timeLeft:
+            type: string
+          description:
+            type: string
+          highlights:
+            type: array
+            items:
+              type: string
+          image:
+            type: string
+          url:
+            type: string
